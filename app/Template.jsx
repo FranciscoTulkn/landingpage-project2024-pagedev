@@ -11,11 +11,10 @@ const variants = {
   enter: { opacity: 1 },
 
 }
-export const Template = ({ children }) => {
-  const completion = useScrollProgress() ?? 0;
+const Template = ({ children }) => {
+  const completion = useScrollProgress();
   
-  return (
-    <>
+  return <>
       <motion.main 
         variants={variants} 
         initial="hidden" 
@@ -25,10 +24,11 @@ export const Template = ({ children }) => {
         {children}
       </motion.main>
       {/* Completion Bar */}
-      <span style={{ transform: `translateY(${completion -100}%)`} } className="fixed z-50 bg-primary w-1 top-0 right-0 bottom-0 transition-all duration-700"></span>
+      <span 
+        style={{ transform: `translateY(${completion -100}%)`} } className="fixed top-0 bottom-0 right-0 z-50 w-1 transition-all duration-700 bg-primary"></span>
       <div className="h-[4000px]"></div>
     </>
-  )
 
 }
 
+export default Template;
