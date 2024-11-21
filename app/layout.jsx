@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <Header />
-          {children}
+            {children}
           <Footer />
         </ThemeProvider>
       </body>
